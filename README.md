@@ -57,6 +57,8 @@ ___
 - Esses dois scripts somente funcionam se forem passados um parâmetro, que é o tempo do teste em segundos (para o primeiro script) e a quantidade de pacotes ICMP enviados (para o segundo script)
   - `bash generate_udp_traffic.sh 300` (Simula tráfego UDP por 300s = 5min)
 
+- Para executar os scripts, basta navegar até a pasta da Vagrantfile da VM que você queira executar o script e rodar `vagrant ssh`. Com isso, você se conectará à máquina e poderá rodar os scripts com as orientações dadas acima
+
 ## Como visualizar?
 - Feito os passos anteriores, na sua instância do Zabbix server, devem ser configurados os hosts a serem monitorados e selecionados os items ou templates de métricas para a criação dos dashboards. Eu utilizo, na maioria das vezes, o template específico para o SO Linux, que dá várias métricas como o uso de disco, uso de CPU, tráfego de rede, entre outros.
 
