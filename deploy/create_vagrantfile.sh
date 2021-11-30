@@ -18,6 +18,6 @@ Vagrant.configure('2') do |config|
     vb.cpus = $CPUS
     vb.name = '$HOSTNAME'
   end
-  config.vm.provision 'shell', path: '../../initial_machine_setup.sh'
+  config.vm.provision 'shell', path: '../../deploy/initial_machine_setup.sh'
 end
 " > ./vms/$HOSTNAME/Vagrantfile

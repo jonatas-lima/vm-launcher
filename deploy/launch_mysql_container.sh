@@ -4,11 +4,6 @@
 curl -fsSL https://get.docker.com -o get-docker.sh
 bash get-docker.sh
 
-# # Adicionando o usuário ao grupo docker
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-
 # Variáveis do banco de dados
 MYSQL_ROOT_PASSWORD=root
 DB_NAME=net
@@ -22,6 +17,7 @@ sudo docker run -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
   -e MYSQL_PASSWORD=$DB_PASSWORD \
   -v $(pwd)/mysql_conf:'/etc/mysql/mysql.conf.d' \
   -v $(pwd)/mysql_data:'/docker-entrypoint-initdb.d' \
+  -v mysql-data:'/var/lib/mysql'
   --network host \
   -d --name mysql \
   mysql:5.7

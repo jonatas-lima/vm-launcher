@@ -10,5 +10,6 @@ do
   MEMORY=$(echo $line | cut -d',' -f4)
   CPUS=$(echo $line | cut -d',' -f5)
 
-  bash './create-vagrantfile.sh' $HOSTNAME $IP $NETWORK_INTERFACE $MEMORY $CPUS
+  bash './create_vagrantfile.sh' $HOSTNAME $IP $NETWORK_INTERFACE $MEMORY $CPUS
+  cd ../vms/$HOSTNAME && vagrant up && cd ../../
 done < $VMS_FILE
