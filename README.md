@@ -19,7 +19,7 @@ ___
 - Ao executar o script `deploy.sh`, serão criadas as instâncias definidas no arquivo `vms.csv` com o Vagrant, cada uma com um banco de dados pré-configurado e com o Zabbix agent.
 
 ___
-## Como testar?
+## Como configurar?
 1. No arquivo `vms.csv` devem ser colocadas as seguintes informações:
   
 | Hostname | Endereço de IP | Interface de rede | Memória (MB) | Número de VCPU's
@@ -56,3 +56,11 @@ ___
 
 - Esses dois scripts somente funcionam se forem passados um parâmetro, que é o tempo do teste em segundos (para o primeiro script) e a quantidade de pacotes ICMP enviados (para o segundo script)
   - `bash generate_udp_traffic.sh 300` (Simula tráfego UDP por 300s = 5min)
+
+## Como visualizar?
+- Feito os passos anteriores, na sua instância do Zabbix server, devem ser configurados os hosts a serem monitorados e selecionados os items ou templates de métricas para a criação dos dashboards. Eu utilizo, na maioria das vezes, o template específico para o SO Linux, que dá várias métricas como o uso de disco, uso de CPU, tráfego de rede, entre outros.
+
+- Para visualizar os dados de RTT, eu indico instalar o Grafana, uma ferramenta que permite a criação de dashboards a partir de uma data source. Deve ser configurado uma data source MySQL e colocar as configurações que foram colocadas no arquivo de inicialização do container MySQL. Após isso, vai em criar dashboard e criar um novo painel, onde terá a opção de selecionar a data source e a tabela (ping_stats), assim como o campo de tempo (created_at) e o campo de valor (rtt). Após fazer isso, será criado um dashboard com esses dados.
+  
+## Cron jobs
+- Se quiser aumentar o nível de veracidade desse teste, seria interessante criar cron jobs (tasks que são executadas de tempos em tempos) para executar os scripts que foram fornecidos. Deixo aqui uma referência legal sobre [como criar cron jobs](https://help.dreamhost.com/hc/en-us/articles/215767047-Creating-a-custom-Cron-Job)
