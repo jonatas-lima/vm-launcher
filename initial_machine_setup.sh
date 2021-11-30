@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GIT_BRANCH=testing
+GIT_BRANCH=only_needed
 
 sudo apt update && sudo apt upgrade -y && sudo apt install -y wget curl iperf3 git
 
