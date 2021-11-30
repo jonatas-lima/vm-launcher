@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash './deploy/launch_vms.sh'
+bash './launch_vms.sh'
