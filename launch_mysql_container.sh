@@ -11,13 +11,13 @@ DB_USER=net_user
 DB_PASSWORD=net_password
 
 # Iniciando o container
-sudo docker run -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
+sudo docker run -d -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
   -e MYSQL_DATABASE=$DB_NAME \
   -e MYSQL_USER=$DB_USER \
   -e MYSQL_PASSWORD=$DB_PASSWORD \
   -v $(pwd)/mysql_conf:'/etc/mysql/mysql.conf.d' \
   -v $(pwd)/mysql_data:'/docker-entrypoint-initdb.d' \
-  -v mysql-data:'/var/lib/mysql'
+  -v mysql-data:'/var/lib/mysql' \
   --network host \
-  -d --name mysql \
+  --name mysql \
   mysql:5.7
