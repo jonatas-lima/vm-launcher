@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Instalando o docker
-curl -fsSL https://get.docker.com -o get-docker.sh | bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+bash get-docker.sh
 
 # # Adicionando o usuário ao grupo docker
 sudo groupadd docker
@@ -15,7 +16,7 @@ DB_USER=net_user
 DB_PASSWORD=net_password
 
 # Iniciando o container
-docker run -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
+sudo docker run -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
   -e MYSQL_DATABASE=$DB_NAME \
   -e MYSQL_USER=$DB_USER \
   -e MYSQL_PASSWORD=$DB_PASSWORD \

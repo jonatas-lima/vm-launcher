@@ -7,5 +7,5 @@ iperf3 -s -D
 
 git clone https://github.com/jonatas-lima/zabbix-agent-config.git -b testing && cd zabbix-agent-config
 
-bash './install_and_config_zabbix.sh'
+bash './install_and_config_zabbix_agent.sh'
 bash './launch_mysql_container.sh'
