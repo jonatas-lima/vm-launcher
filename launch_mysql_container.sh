@@ -22,6 +22,6 @@ sudo docker run -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
   -e MYSQL_PASSWORD=$DB_PASSWORD \
   -v $(pwd)/mysql_conf:'/etc/mysql/mysql.conf.d' \
   -v $(pwd)/mysql_data:'/docker-entrypoint-initdb.d' \
-  -p 3306:3306 \
+  --network host \
   -d --name mysql \
   mysql:5.7
