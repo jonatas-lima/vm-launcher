@@ -9,7 +9,8 @@ do
   NETWORK_INTERFACE=$(echo $line | cut -d',' -f3)
   MEMORY=$(echo $line | cut -d',' -f4)
   CPUS=$(echo $line | cut -d',' -f5)
+  STACK=$(echo $line | cut -d',' -f6)
 
-  bash './create_vagrantfile.sh' $HOSTNAME $IP $NETWORK_INTERFACE $MEMORY $CPUS
+  bash './create_vagrantfile.sh' $HOSTNAME $IP $NETWORK_INTERFACE $MEMORY $CPUS $STACK
   cd ./vms/$HOSTNAME && vagrant up && cd ../../
 done < $VMS_FILE
