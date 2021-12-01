@@ -1,4 +1,4 @@
-# zabbix-agent-config
+# VM-Launcher
 
 ## Motivação
 - Repositório destinado ao estudo de automatizações e sobre o provisionamento de máquinas virtuais utilizando Vagrant
