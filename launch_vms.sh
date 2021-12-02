@@ -10,7 +10,8 @@ do
   MEMORY=$(echo $line | cut -d',' -f4)
   CPUS=$(echo $line | cut -d',' -f5)
   STACK=$(echo $line | cut -d',' -f6)
+  ZABBIX_SERVER_IP=$(echo $line | cut -d',' -f7)
 
-  bash './create_vagrantfile.sh' $HOSTNAME $IP $NETWORK_INTERFACE $MEMORY $CPUS $STACK
+  bash './create_vagrantfile.sh' $HOSTNAME $IP $NETWORK_INTERFACE $MEMORY $CPUS $STACK $ZABBIX_SERVER_IP
   cd ./vms/$HOSTNAME && vagrant up && cd ../../
 done < $VMS_FILE

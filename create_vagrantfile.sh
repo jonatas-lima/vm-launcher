@@ -6,9 +6,9 @@ NETWORK_INTERFACE=$3
 MEMORY=$4
 CPUS=$5
 STACK=$6
+ZABBIX_SERVER_IP=$7
 
 mkdir -p ./vms/$HOSTNAME
-echo $(pwd)
 
 echo "
 Vagrant.configure('2') do |config|
@@ -20,6 +20,6 @@ Vagrant.configure('2') do |config|
     vb.cpus = $CPUS
     vb.name = '$HOSTNAME'
   end
-  config.vm.provision 'shell', path: '../../initial_machine_setup.sh', args: '$STACK'
+  config.vm.provision 'shell', path: '../../initial_machine_setup.sh', args: ['$STACK', '$ZABBIX_SERVER_IP']
 end
 " > ./vms/$HOSTNAME/Vagrantfile
