@@ -1,3 +1,1 @@
-jameson,192.168.1.52,wlo1,1024,2,net_monitoring,192.168.1.4
-flash,192.168.1.53,wlo1,1024,2,grafana_server
-flash,192.168.1.53,wlo1,1024,2,net_monitoring
+jameson,ubuntu/focal64,192.168.1.52,wlo1,1024,2,net_monitoring,192.168.1.8

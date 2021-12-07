@@ -1,18 +1,19 @@
 #!/bin/bash
 
 HOSTNAME=$1
-IP=$2
-NETWORK_INTERFACE=$3
-MEMORY=$4
-CPUS=$5
-STACK=$6
-ZABBIX_SERVER_IP=$7
+OS=$2
+IP=$3
+NETWORK_INTERFACE=$4
+MEMORY=$5
+CPUS=$6
+STACK=$7
+ZABBIX_SERVER_IP=$8
 
 mkdir -p ./vms/$HOSTNAME
 
 echo "
 Vagrant.configure('2') do |config|
-  config.vm.box = 'ubuntu/focal64'
+  config.vm.box = '$OS'
   config.vm.hostname = '$HOSTNAME'
   config.vm.network 'public_network', ip: '$IP', bridge: '$NETWORK_INTERFACE'
   config.vm.provider 'virtualbox' do |vb|
